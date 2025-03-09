@@ -1,0 +1,254 @@
+# Install .NET SDK 9.0
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: DotNetSDK9
+  directives:
+    description: Install .NET SDK 9.0
+    allowPrerelease: true
+  settings:
+    id: Microsoft.DotNet.SDK.9
+    source: winget
+    Ensure: Present
+
+# Install Azure CLI
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: AzureCli
+  directives:
+    description: Install Azure CLI
+    allowPrerelease: true
+  settings:
+    id: Microsoft.AzureCLI
+    source: winget
+    Ensure: Present
+
+# Install Azure Data Studio
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: AzureDataStudio
+  directives:
+    description: Install Azure Data Studio
+    allowPrerelease: true
+  settings:
+    id: Microsoft.AzureDataStudio
+    source: winget
+    Ensure: Present
+
+# Install Azure Storage Explorer
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: AzureStorageExplorer
+  directives:
+    description: Install Azure Storage Explorer
+    allowPrerelease: true
+  settings:
+    id: Microsoft.Azure.StorageExplorer
+    source: winget
+    Ensure: Present
+
+# Install Node.js
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: Nodejs
+  directives:
+    description: Install Node.js
+    allowPrerelease: true
+  settings:
+    id: OpenJS.Nodejs
+    source: winget
+    Ensure: Present
+
+# Install pnpm
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: Pnpm
+  directives:
+    description: Install pnpm
+    allowPrerelease: true
+  settings:
+    id: pnpm.pnpm
+    source: winget
+    Ensure: Present
+
+# Install Python
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: Python
+  directives:
+    description: Install Python
+    allowPrerelease: true
+  settings:
+    id: Python.Python.3.13
+    source: winget
+    Ensure: Present
+
+
+# Install Git
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: Git
+  directives:
+    description: Install Git
+    allowPrerelease: true
+  settings:
+    id: Git.Git
+    source: winget
+    Ensure: Present
+
+
+# Install LinqPad
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: LinqPad
+  directives:
+    description: Install LinqPad
+    allowPrerelease: true
+  settings:
+    id: LINQPad.LINQPad.8
+    source: winget
+    Ensure: Present
+
+# Install Azure Functions Core Tools
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: AzureFunctionsCoreTools
+  directives:
+    description: Install Azure Functions Core Tools
+    allowPrerelease: true
+  settings:
+    id: Microsoft.Azure.FunctionsCoreTools
+    source: winget
+    Ensure: Present
+
+# Install k9s
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: k9s
+  directives:
+    description: Install k9s
+    allowPrerelease: true
+  settings:
+    id: Derailed.k9s
+    source: winget
+    Ensure: Present
+
+# Install Docker Desktop
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: DockerDesktop
+  directives:
+    description: Install Docker
+    allowPrerelease: true
+  settings:
+    id: Docker.DockerDesktop
+    source: winget
+    Ensure: Present
+
+# Install kubectl
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: KubeCtl
+  directives:
+    description: Install kubectl
+    allowPrerelease: true
+  settings:
+    id: Kubernetes.kubectl
+    source: winget
+    Ensure: Present
+
+# Install minikube
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: Minikube
+  directives:
+    description: Install minikube
+    allowPrerelease: true
+  settings:
+    id: Kubernetes.minikube
+    source: winget
+    Ensure: Present
+
+# Install Helm
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: Helm
+  directives:
+    description: Install Helm
+    allowPrerelease: true
+  settings:
+    id: Helm.Helm
+    source: winget
+    Ensure: Present
+
+# Install SQL Server Management Studio
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: SSMS
+  directives:
+    description: Install SQL Server Management Studio
+    allowPrerelease: true
+  settings:
+    id: Microsoft.SQLServerManagementStudio
+    source: winget
+    Ensure: Present
+
+# Install WSL
+- resource: PSDscResources/Script
+  id: WSLInstall
+  directives:
+    description: Install WSL
+  settings:
+    GetScript: |
+      $wslCommand = Get-Command wsl.exe -ErrorAction SilentlyContinue
+      return @{
+          Result = $wslCommand
+      }
+    TestScript: |
+      $wslCommand = Get-Command wsl.exe -ErrorAction SilentlyContinue
+      if ($wslCommand -eq $null) {
+          return $false
+      }else {
+          return $true
+      }
+    SetScript: |
+      Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -NoRestart
+      wsl --install
+
+# Install JetBrains.Toolbox
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: JetBrainsToolbox
+  directives:
+    description: Install JetBrains Toolbox
+    allowPrerelease: true
+  settings:
+    id: JetBrains.Toolbox
+    source: winget
+    Ensure: Present
+
+# Install JetBrains Rider
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: JetBrainsRider
+  directives:
+    description: Install JetBrains Rider
+    allowPrerelease: true
+  settings:
+    id: JetBrains.Rider
+    source: winget
+    Ensure: Present
+
+# Install JetBrains dotTrace
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: JetBrainsDotTrace
+  directives:
+    description: Install JetBrains dotTrace
+    allowPrerelease: true
+  settings:
+    id: JetBrains.dotTrace
+    source: winget
+    Ensure: Present
+
+# Install Visual Studio Professional 2022
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: VisualStudio2022Professional
+  directives:
+    description: Install Visual Studio Professional
+    allowPrerelease: true
+  settings:
+    id: Microsoft.VisualStudio.2022.Professional
+    source: winget
+    Ensure: Present
+
+# Install Terraform
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: Terraform
+  directives:
+    description: Install Terraform
+    allowPrerelease: true
+  settings:
+    id: HashiCorp.Terraform
+    source: winget
+    Ensure: Present

@@ -3,10 +3,7 @@ This is a PowerShell script that leverages the `winget configuration`  command t
 <br>The script will stitch together a winget configuration file based on the profile you chose.
 # Usage
 One line command: 
-<br>`iwr -useb https://dsc.copilau.me | iex` 
-<br>or
-<br>
- `iwr -useb https://raw.githubusercontent.com/robert-cpl/winget-dsc/main/apply-configuration.ps1 | iex`
+ `iwr -useb https://raw.githubusercontent.com/akselkvitberg/winget-dsc/main/apply-configuration.ps1 | iex`
 
 # Resource examples
 An assortment of examples for the resources that are available to execute in the configuration.

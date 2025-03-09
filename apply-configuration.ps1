@@ -1,11 +1,11 @@
 # Check for admin rights
 if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
     Write-Output "WinGet needs Administrator rights to run. Restarting in Admin mode..."
-    Start-Process -Verb runas -FilePath powershell.exe -ArgumentList "iwr -useb https://raw.githubusercontent.com/robert-cpl/winget-dsc/main/apply-configuration.ps1 | iex"
+    Start-Process -Verb runas -FilePath powershell.exe -ArgumentList "iwr -useb https://raw.githubusercontent.com/akselkvitberg/winget-dsc/main/apply-configuration.ps1 | iex"
     break
 }
 
-Write-Host "See full source code on GitHub @ https://github.com/robert-cpl/winget-dsc" -ForegroundColor Yellow
+Write-Host "See full source code on GitHub @ https://github.com/akselkvitberg/winget-dsc" -ForegroundColor Yellow
 
 # Check if running locally so we can use the local files
 $runLocally = if (Test-Path ".gitignore") { $true } else { $false }
@@ -78,7 +78,7 @@ $twoSpacesIndentation = '  '
 $fourSpacesIndentation = '    '
 
 # Modules
-$fileFolderPath = if ($runLocally) { "./configuration" }else { "https://raw.githubusercontent.com/robert-cpl/winget-dsc/main/configuration" }
+$fileFolderPath = if ($runLocally) { "./configuration" }else { "https://raw.githubusercontent.com/akselkvitberg/winget-dsc/main/configuration" }
 $headerContent = GetContent -filePath "$fileFolderPath/modules/header.yaml" -runLocally $runLocally
 $footerContent = GetContent -filePath "$fileFolderPath/modules/footer.yaml" -indentation $twoSpacesIndentation -runLocally $runLocally
 $finishersContent = GetContent -filePath "$fileFolderPath/modules/finishers.yaml" -indentation $fourSpacesIndentation -runLocally $runLocally

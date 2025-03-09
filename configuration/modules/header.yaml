@@ -1,5 +1,7 @@
+# Properties for the configuration
 properties:
   assertions:
+    # Verify minimum OS version requirement
     - resource: Microsoft.Windows.Developer/OsVersion
       directives:
         description: Verify min OS version requirement

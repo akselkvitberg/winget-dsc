@@ -1,3 +1,4 @@
+# This resource restarts the explorer.exe process
 - resource: PSDscResources/Script
   id: RestartExplorer
   directives:
