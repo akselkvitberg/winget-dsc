@@ -46,7 +46,6 @@
       }
 
       unpin_taskbar('Microsoft Store')
-      unpin_taskbar('Microsoft Edge')
 
 # Enable Developer Mode
 - resource: Microsoft.Windows.Developer/DeveloperMode
@@ -112,16 +111,13 @@
     source: winget
     Ensure: Present
 
+# Configure PowerToys
 - resource: PowerToysConfigure
   directives:
     description: Configure PowerToys
   settings:
     ShortcutGuide:
       Enabled: false
-      OverlayOpacity: 1
-    FancyZones:
-      Enabled: true
-      FancyzonesEditorHotkey: "Shift+Ctrl+Alt+F"
 
 # Intall 7zip
 - resource: Microsoft.WinGet.DSC/WinGetPackage
@@ -222,6 +218,27 @@
     source: winget
     Ensure: Present
 
+# Install Visual Studio Code Extensions
+# YAML
+- resource: vscode/VSCodeExtension
+  directives:
+    description: Install YAML Extension
+    allowPrerelease: true
+  settings:
+    Name: redhat.vscode-yaml
+    Ensure: Present
+# Polyglot notebooks
+- resource: vscode/VSCodeExtension
+  directives:
+    description: Install YAML Extension
+    allowPrerelease: true
+  settings:
+    Name: ms-dotnettools.dotnet-interactive-vscode
+    Ensure: Present
+
+
+
+
 # Update the start menu layout to show fewer recommendations and more pins
 - resource: PSDscResources/Registry
   id: UpdateStartLayout
@@ -306,4 +323,196 @@
     description: Ensure Windows Sandbox is enabled
   settings:
     Name: Containers-DisposableClientVM
+    Ensure: Present
+
+
+
+# Install .NET SDK 9.0
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: DotNetSDK9
+  directives:
+    description: Install .NET SDK 9.0
+    allowPrerelease: true
+  settings:
+    id: Microsoft.DotNet.SDK.9
+    source: winget
+    Ensure: Present
+
+
+# Install Azure CLI
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: AzureCli
+  directives:
+    description: Install Azure CLI
+    allowPrerelease: true
+  settings:
+    id: Microsoft.AzureCLI
+    source: winget
+    Ensure: Present
+
+# Install Azure Data Studio
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: AzureDataStudio
+  directives:
+    description: Install Azure Data Studio
+    allowPrerelease: true
+  settings:
+    id: Microsoft.AzureDataStudio
+    source: winget
+    Ensure: Present
+
+# Install Azure Storage Explorer
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: AzureStorageExplorer
+  directives:
+    description: Install Azure Storage Explorer
+    allowPrerelease: true
+  settings:
+    id: Microsoft.Azure.StorageExplorer
+    source: winget
+    Ensure: Present
+
+# Install Node.js
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: Nodejs
+  directives:
+    description: Install Node.js
+    allowPrerelease: true
+  settings:
+    id: OpenJS.Nodejs
+    source: winget
+    Ensure: Present
+
+# Install pnpm
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: Pnpm
+  directives:
+    description: Install pnpm
+    allowPrerelease: true
+  settings:
+    id: pnpm.pnpm
+    source: winget
+    Ensure: Present
+
+# Install Python
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: Python
+  directives:
+    description: Install Python
+    allowPrerelease: true
+  settings:
+    id: Python.Python.3.13
+    source: winget
+    Ensure: Present
+
+
+# Install Git
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: Git
+  directives:
+    description: Install Git
+    allowPrerelease: true
+  settings:
+    id: Git.Git
+    source: winget
+    Ensure: Present
+
+
+# Install LinqPad
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: LinqPad
+  directives:
+    description: Install LinqPad
+    allowPrerelease: true
+  settings:
+    id: LINQPad.LINQPad.8
+    source: winget
+    Ensure: Present
+
+# Install Azure Functions Core Tools
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: AzureFunctionsCoreTools
+  directives:
+    description: Install Azure Functions Core Tools
+    allowPrerelease: true
+  settings:
+    id: Microsoft.Azure.FunctionsCoreTools
+    source: winget
+    Ensure: Present
+
+# Install Docker Desktop
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: DockerDesktop
+  directives:
+    description: Install Docker
+    allowPrerelease: true
+  settings:
+    id: Docker.DockerDesktop
+    source: winget
+    Ensure: Present
+
+# Install WSL
+- resource: PSDscResources/Script
+  id: WSLInstall
+  directives:
+    description: Install WSL
+  settings:
+    GetScript: |
+      $wslCommand = Get-Command wsl.exe -ErrorAction SilentlyContinue
+      return @{
+          Result = $wslCommand
+      }
+    TestScript: |
+      $wslCommand = Get-Command wsl.exe -ErrorAction SilentlyContinue
+      if ($wslCommand -eq $null) {
+          return $false
+      }else {
+          return $true
+      }
+    SetScript: |
+      Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -NoRestart
+      wsl --install
+
+# Install JetBrains.Toolbox
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: JetBrainsToolbox
+  directives:
+    description: Install JetBrains Toolbox
+    allowPrerelease: true
+  settings:
+    id: JetBrains.Toolbox
+    source: winget
+    Ensure: Present
+
+# Install JetBrains dotTrace
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: JetBrainsDotTrace
+  directives:
+    description: Install JetBrains dotTrace
+    allowPrerelease: true
+  settings:
+    id: JetBrains.dotTrace
+    source: winget
+    Ensure: Present
+
+# Install ImHex
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: ImHex
+  directives:
+    description: Install ImHex
+    allowPrerelease: true
+  settings:
+    id: WerWolv.ImHex
+    source: winget
+    Ensure: Present
+
+# Install Figma
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: Figma
+  directives:
+    description: Install Figma
+    allowPrerelease: true
+  settings:
+    id: Figma.Figma
+    source: winget
     Ensure: Present

@@ -20,13 +20,3 @@
     source: winget
     Ensure: Present
 
-# Install Teams
-- resource: Microsoft.WinGet.DSC/WinGetPackage
-  id: Teams
-  directives:
-    description: Install Teams
-    allowPrerelease: true
-  settings:
-    id: Microsoft.Teams
-    source: winget
-    Ensure: Present
