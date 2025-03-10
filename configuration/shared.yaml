@@ -219,22 +219,102 @@
     Ensure: Present
 
 # Install Visual Studio Code Extensions
-# YAML
 - resource: vscode/VSCodeExtension
   directives:
-    description: Install YAML Extension
-    allowPrerelease: true
+    description: Install ms-dotnettools.vscode-dotnet-pack Extension
+  settings:
+    Name: ms-dotnettools.vscode-dotnet-pack
+- resource: vscode/VSCodeExtension
+  directives:
+    description: Install ms-vscode.vscode-node-azure-pack Extension
+  settings:
+    Name: ms-vscode.vscode-node-azure-pack
+- resource: vscode/VSCodeExtension
+  directives:
+    description: Install ms-vscode-remote.vscode-remote-extensionpack Extension
+  settings:
+    Name: ms-vscode-remote.vscode-remote-extensionpack
+- resource: vscode/VSCodeExtension
+  directives:
+    description: Install formulahendry.auto-complete-tag Extension
+  settings:
+    Name: formulahendry.auto-complete-tag
+- resource: vscode/VSCodeExtension
+  directives:
+    description: Install mubaidr.vuejs-extension-pack Extension
+  settings:
+    Name: mubaidr.vuejs-extension-pack
+- resource: vscode/VSCodeExtension
+  directives:
+    description: Install ms-dotnettools.csdevkit Extension
+  settings:
+    Name: ms-dotnettools.csdevkit
+- resource: vscode/VSCodeExtension
+  directives:
+    description: Install ms-dotnettools.vscodeintellicode-csharp Extension
+  settings:
+    Name: ms-dotnettools.vscodeintellicode-csharp
+- resource: vscode/VSCodeExtension
+  directives:
+    description: Install ms-vscode.powershell Extension
+  settings:
+    Name: ms-vscode.powershell
+- resource: vscode/VSCodeExtension
+  directives:
+    description: Install bierner.markdown-mermaid Extension
+  settings:
+    Name: bierner.markdown-mermaid
+- resource: vscode/VSCodeExtension
+  directives:
+    description: Install bpruitt-goddard.mermaid-markdown-syntax-highlighting Extension
+  settings:
+    Name: bpruitt-goddard.mermaid-markdown-syntax-highlighting
+- resource: vscode/VSCodeExtension
+  directives:
+    description: Install yzhang.markdown-all-in-one Extension
+  settings:
+    Name: yzhang.markdown-all-in-one
+- resource: vscode/VSCodeExtension
+  directives:
+    description: Install ciarant.vscode-structurizr Extension
+  settings:
+    Name: ciarant.vscode-structurizr
+- resource: vscode/VSCodeExtension
+  directives:
+    description: Install redhat.vscode-yaml Extension
   settings:
     Name: redhat.vscode-yaml
-    Ensure: Present
-# Polyglot notebooks
 - resource: vscode/VSCodeExtension
   directives:
-    description: Install YAML Extension
-    allowPrerelease: true
+    description: Install bradlc.vscode-tailwindcss Extension
   settings:
-    Name: ms-dotnettools.dotnet-interactive-vscode
-    Ensure: Present
+    Name: bradlc.vscode-tailwindcss
+- resource: vscode/VSCodeExtension
+  directives:
+    description: Install catppuccin.catppuccin-vsc Extension
+  settings:
+    Name: catppuccin.catppuccin-vsc
+- resource: vscode/VSCodeExtension
+  directives:
+    description: Install catppuccin.catppuccin-vsc-icons Extension
+  settings:
+    Name: catppuccin.catppuccin-vsc-icons
+- resource: vscode/VSCodeExtension
+  directives:
+    description: Install editorconfig.editorconfig Extension
+  settings:
+    Name: editorconfig.editorconfig
+- resource: vscode/VSCodeExtension
+  directives:
+    description: Install lokalise.i18n-ally Extension
+  settings:
+    Name: lokalise.i18n-ally
+- resource: vscode/VSCodeExtension
+  directives:
+    description: Install ms-playwright.playwright Extension
+  settings:
+    Name: ms-playwright.playwright
+
 
 
 
@@ -515,4 +595,48 @@
   settings:
     id: Figma.Figma
     source: winget
+    Ensure: Present
+
+# Install Affinity.Photo
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: Figma
+  directives:
+    description: Install Figma
+    allowPrerelease: true
+  settings:
+    id: "9P8DVF1XW02V"
+    source: msstore
+    Ensure: Present
+
+# Install Affinity.Designer
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: Figma
+  directives:
+    description: Install Figma
+    allowPrerelease: true
+  settings:
+    id: "9N2D0P16C80H"
+    source: msstore
+    Ensure: Present
+
+# Install Affinity.Publisher
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: Figma
+  directives:
+    description: Install Figma
+    allowPrerelease: true
+  settings:
+    id: "9NTV2DZ11KD9"
+    source: msstore
+    Ensure: Present
+
+# Install Nuget Package Manager
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: Figma
+  directives:
+    description: Install Figma
+    allowPrerelease: true
+  settings:
+    id: "9WZDNCRDMDM3"
+    source: msstore
     Ensure: Present
