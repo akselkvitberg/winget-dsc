@@ -520,17 +520,6 @@
     source: winget
     Ensure: Present
 
-# Install Docker Desktop
-- resource: Microsoft.WinGet.DSC/WinGetPackage
-  id: DockerDesktop
-  directives:
-    description: Install Docker
-    allowPrerelease: true
-  settings:
-    id: Docker.DockerDesktop
-    source: winget
-    Ensure: Present
-
 # Install WSL
 - resource: PSDscResources/Script
   id: WSLInstall
@@ -552,6 +541,18 @@
     SetScript: |
       Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -NoRestart
       wsl --install
+
+
+# Install Docker Desktop
+- resource: Microsoft.WinGet.DSC/WinGetPackage
+  id: DockerDesktop
+  directives:
+    description: Install Docker
+    allowPrerelease: true
+  settings:
+    id: Docker.DockerDesktop
+    source: winget
+    Ensure: Present
 
 # Install JetBrains.Toolbox
 - resource: Microsoft.WinGet.DSC/WinGetPackage
