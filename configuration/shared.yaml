@@ -600,9 +600,9 @@
 
 # Install Affinity.Photo
 - resource: Microsoft.WinGet.DSC/WinGetPackage
-  id: Figma
+  id: AffinityPhoto
   directives:
-    description: Install Figma
+    description: Install Affinity Photo
     allowPrerelease: true
   settings:
     id: "9P8DVF1XW02V"
@@ -611,9 +611,9 @@
 
 # Install Affinity.Designer
 - resource: Microsoft.WinGet.DSC/WinGetPackage
-  id: Figma
+  id: AffinityDesigner
   directives:
-    description: Install Figma
+    description: Install Affinity Designer
     allowPrerelease: true
   settings:
     id: "9N2D0P16C80H"
@@ -622,9 +622,9 @@
 
 # Install Affinity.Publisher
 - resource: Microsoft.WinGet.DSC/WinGetPackage
-  id: Figma
+  id: AffinityPublisher
   directives:
-    description: Install Figma
+    description: Install Affinity Publisher
     allowPrerelease: true
   settings:
     id: "9NTV2DZ11KD9"
@@ -633,9 +633,9 @@
 
 # Install Nuget Package Manager
 - resource: Microsoft.WinGet.DSC/WinGetPackage
-  id: Figma
+  id: NugetPackageManager
   directives:
-    description: Install Figma
+    description: Install Nuget Package Manager
     allowPrerelease: true
   settings:
     id: "9WZDNCRDMDM3"
