@@ -392,7 +392,7 @@
     description: Disable dark mode
     allowPrerelease: true
   settings:
-    Ensure: Absent
+    Ensure: Present
     # Use caution when setting `RestartExplorer: true` as this will force explorer to close.
     RestartExplorer: true # Required to apply changes
 
